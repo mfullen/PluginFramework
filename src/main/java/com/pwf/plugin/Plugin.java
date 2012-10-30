@@ -1,7 +1,7 @@
 package com.pwf.plugin;
 
 /**
- * Plugin interface where the magic happens sf
+ * Plugin interface where the magic happens s
  */
 public interface Plugin
 {
