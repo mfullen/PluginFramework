@@ -9,7 +9,7 @@ public interface PluginManager extends PluginManagerLite
 {
     void load(Plugin plugin);
 
-    void load(Plugin plugin, PluginConfiguration config);
+    void loadAllPlugins();
 
     void unload(Plugin plugin);
 

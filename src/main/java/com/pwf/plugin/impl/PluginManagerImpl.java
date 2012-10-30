@@ -1,14 +1,18 @@
 package com.pwf.plugin.impl;
 
 import com.pwf.plugin.Plugin;
-import com.pwf.plugin.PluginConfiguration;
 import com.pwf.plugin.PluginManager;
 import com.pwf.plugin.PluginRepository;
 import java.security.Policy;
 import java.util.Collection;
+import java.util.Iterator;
+import java.util.ServiceLoader;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 class PluginManagerImpl implements PluginManager
 {
+    private static final Logger logger = LoggerFactory.getLogger(PluginManager.class);
     private PluginRepository pluginRepository = null;
     private Policy policy = new PluginPolicy();
 
@@ -34,14 +38,21 @@ class PluginManagerImpl implements PluginManager
         plugin.initialize(this);
     }
 
-    public void load(Plugin plugin, PluginConfiguration config)
+    public void loadAllPlugins()
     {
-        this.load(plugin);
+        ServiceLoader<Plugin> loadedServices = ServiceLoader.load(Plugin.class);
+
+        for (Iterator<Plugin> it = loadedServices.iterator(); it.hasNext();)
+        {
+            Plugin plugin = it.next();
+            this.load(plugin);
+        }
     }
 
     public void unload(Plugin plugin)
     {
         this.pluginRepository.removePlugin(plugin);
+        plugin.stop();
     }
 
     public <P extends Plugin> Collection<P> getPlugins()

@@ -3,29 +3,26 @@ package com.pwf.plugin;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class DataService implements DataPlugin
+/**
+ *
+ * @author mfullen
+ */
+public class PlainPlugin implements Plugin
 {
     private static final Logger logger = LoggerFactory.getLogger(DataService.class);
-    private String data = null;
-
-    public String getData()
-    {
-        return data;
-    }
 
     public void initialize(PluginManagerLite pluginManager)
     {
-        this.data = "My Data";
     }
 
     public void start()
     {
-        logger.debug("Data Plugin Started");
+        logger.debug("PlainPlugin Started");
     }
 
     public void stop()
     {
-        logger.debug("Data Plugin Stopped");
+        logger.debug("PlainPlugin Stopped");
     }
 
     @Override
@@ -42,7 +39,7 @@ public class DataService implements DataPlugin
         {
             public String getName()
             {
-                return "DataService Test Plugin";
+                return "PlainPlugin Test Plugin";
             }
 
             public String getVersion()
@@ -57,7 +54,7 @@ public class DataService implements DataPlugin
 
             public String getIdentifier()
             {
-                return "com.pwf.dataservice";
+                return "com.pwf.plainplugin";
             }
         };
     }

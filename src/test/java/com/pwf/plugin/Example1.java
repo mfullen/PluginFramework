@@ -1,9 +1,7 @@
 package com.pwf.plugin;
 
-import org.junit.AfterClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import org.junit.BeforeClass;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -41,5 +39,17 @@ public class Example1
 
         DataPlugin plugin3 = pluginManager.getPlugin(DataService.class);
         assertEquals(plugin3, dataPlugin);
+    }
+
+    @Test
+    public void testPluginManagerLoad()
+    {
+        PluginManager pluginManager = PluginManagerFactory.createPluginManager();
+        assertTrue(pluginManager.getPlugins().isEmpty());
+        pluginManager.loadAllPlugins();
+        assertFalse(pluginManager.getPlugins().isEmpty());
+        assertEquals(2, pluginManager.getPlugins().size());
+        assertTrue(pluginManager.getPlugin(DataService.class) instanceof Plugin);
+        assertTrue(pluginManager.getPlugin(PlainPlugin.class) instanceof Plugin);
     }
 }
