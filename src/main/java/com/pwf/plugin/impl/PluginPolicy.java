@@ -5,8 +5,9 @@ import java.security.*;
 class PluginPolicy extends Policy
 {
     /**
-     * Returns {@link AllPermission} for any code sources that do not end in “/rogue.jar” and an empty set of
-     * permissions for code sources that do end in “/rogue.jar”, denying access to all local resources to the rogue
+     * Returns {@link AllPermission} for any code sources that do not end in
+     * “/rogue.jar” and an empty set of permissions for code sources that do end
+     * in “/rogue.jar”, denying access to all local resources to the rogue
      * plugin.
      *
      * @param codeSource The code source to get the permissiosn for
@@ -23,10 +24,9 @@ class PluginPolicy extends Policy
         return p;
     }
 
-    /**
-     * Does nothing.
-     */
+    @Override
     public void refresh()
     {
+        //does nothing
     }
 }

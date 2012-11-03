@@ -11,16 +11,16 @@ public class PlainPlugin implements Plugin
 {
     private static final Logger logger = LoggerFactory.getLogger(DataService.class);
 
-    public void initialize(PluginManagerLite pluginManager)
+    public void onLoaded(PluginManagerLite pluginManager)
     {
     }
 
-    public void start()
+    public void onActivated()
     {
         logger.debug("PlainPlugin Started");
     }
 
-    public void stop()
+    public void onDeactivated()
     {
         logger.debug("PlainPlugin Stopped");
     }

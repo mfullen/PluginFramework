@@ -13,17 +13,17 @@ public class DataService implements DataPlugin
         return data;
     }
 
-    public void initialize(PluginManagerLite pluginManager)
+    public void onLoaded(PluginManagerLite pluginManager)
     {
         this.data = "My Data";
     }
 
-    public void start()
+    public void onActivated()
     {
         logger.debug("Data Plugin Started");
     }
 
-    public void stop()
+    public void onDeactivated()
     {
         logger.debug("Data Plugin Stopped");
     }

@@ -27,7 +27,7 @@ public class Example1
 
         assertNull(dataPlugin.getData());
 
-        pluginManager.load(dataPlugin);
+        pluginManager.addPlugin(dataPlugin);
 
         assertEquals("My Data", dataPlugin.getData());
 
