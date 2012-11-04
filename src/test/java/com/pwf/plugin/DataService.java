@@ -15,11 +15,12 @@ public class DataService implements DataPlugin
 
     public void onLoaded(PluginManagerLite pluginManager)
     {
-        this.data = "My Data";
+        //do nothing
     }
 
     public void onActivated()
     {
+        this.data = "My Data";
         logger.debug("Data Plugin Started");
     }
 

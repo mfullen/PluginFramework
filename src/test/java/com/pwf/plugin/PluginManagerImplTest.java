@@ -9,11 +9,11 @@ import org.slf4j.LoggerFactory;
  *
  * @author mfullen
  */
-public class Example1
+public class PluginManagerImplTest
 {
-    private static final Logger logger = LoggerFactory.getLogger(Example1.class);
+    private static final Logger logger = LoggerFactory.getLogger(PluginManagerImplTest.class);
 
-    public Example1()
+    public PluginManagerImplTest()
     {
     }
 
@@ -28,6 +28,7 @@ public class Example1
         assertNull(dataPlugin.getData());
 
         pluginManager.addPlugin(dataPlugin);
+        pluginManager.activate(dataPlugin);
 
         assertEquals("My Data", dataPlugin.getData());
 
