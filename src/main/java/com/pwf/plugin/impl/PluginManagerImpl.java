@@ -152,6 +152,13 @@ class PluginManagerImpl implements PluginManager
         }
     }
 
+    public void loadAndActivatePlugin(Plugin plugin)
+    {
+        this.addPlugin(plugin);
+        this.loadPlugin(plugin);
+        this.activate(plugin);
+    }
+
     protected void loadPlugin(Plugin plugin)
     {
         try

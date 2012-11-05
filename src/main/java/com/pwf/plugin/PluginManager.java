@@ -22,6 +22,15 @@ public interface PluginManager extends PluginManagerLite
     void loadAllPlugins();
 
     /**
+     * This method adds to the plugin manager, loads and activates the plugin.
+     * This method only needs to be called when you want to register a plugin
+     * that wasn't loaded from the class path
+     *
+     * @param plugin
+     */
+    void loadAndActivatePlugin(Plugin plugin);
+
+    /**
      * Remove a plugin from the manager
      *
      * @param plugin
@@ -53,14 +62,4 @@ public interface PluginManager extends PluginManagerLite
     void deactivate(Plugin plugin);
 
     void setSecurityPolicy(Policy policy);
-
-    /**
-     * Creates a copy of a Given plugin type. This method does not register the
-     * cloned plugin to the manager
-     *
-     * @param <T> class type
-     * @param pluginClass the class
-     * @return
-     */
-    <T extends Plugin> T clonePlugin(Class<T> pluginClass);
 }
