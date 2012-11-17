@@ -18,6 +18,14 @@ public interface PluginManagerLite extends ErrorHandler
     <P extends Plugin> Collection<P> getPlugins();
 
     /**
+     * Get all the registered plugins with the specified class name
+     *
+     * @param <P>
+     * @return
+     */
+    <P extends Plugin> Collection<P> getPlugins(Class<P> klass);
+
+    /**
      * Get a specific registered Plugin
      *
      * @param <P>

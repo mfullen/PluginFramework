@@ -9,6 +9,8 @@ public interface PluginRepository
 {
     <P extends Plugin> Collection<P> getPlugins();
 
+    <P extends Plugin> Collection<P> getPlugins(Class<P> pluginClass);
+
     <P extends Plugin> P getPlugin(Class<P> pluginClass);
 
     <P extends Plugin> P getPlugin(Plugin plugin);

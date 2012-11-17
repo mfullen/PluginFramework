@@ -170,4 +170,9 @@ class PluginManagerImpl implements PluginManager
             this.reportError(plugin, e);
         }
     }
+
+    public <P extends Plugin> Collection<P> getPlugins(Class<P> klass)
+    {
+        return this.pluginRepository.getPlugins(klass);
+    }
 }
