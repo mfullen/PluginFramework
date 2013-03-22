@@ -10,7 +10,7 @@ class PluginPolicy extends Policy
      * in “/rogue.jar”, denying access to all local resources to the rogue
      * plugin.
      *
-     * @param codeSource The code source to get the permissiosn for
+     * @param codeSource The code source to get the permission for
      * @return The permissions for the given code source
      */
     @Override
